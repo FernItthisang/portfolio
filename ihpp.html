@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thai AMR Watch Dashboard</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1115; --panel:#151821; --text:#f1f5f9; --muted:#9aa3af;
+      --line:#242a35; --brand:#8aa1ff; --accent:#ffb6e6;
+      --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.25);
+      --container:900px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.65;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .container{max-width:var(--container); margin-inline:auto; padding:32px 20px}
+
+    /* Site header (synced) */
+    .site-header{
+      border-bottom:1px solid var(--line);
+      background:rgba(15,17,21,.6);
+      backdrop-filter:blur(8px);
+      position:sticky; top:0; z-index:1000;
+    }
+    .nav-wrap{display:flex; justify-content:space-between; align-items:center; padding:16px 20px; max-width:var(--container); margin:0 auto}
+    .brand{font-weight:800; text-decoration:none; color:var(--text)}
+    .nav a{color:var(--text); text-decoration:none; margin-left:18px; font-weight:600}
+    .nav a:hover{color:var(--accent)}
+
+    /* Page header */
+    h1{margin:.25rem 0 1rem; font-size:clamp(28px,5vw,40px); line-height:1.2}
+    .meta{margin:0 0 10px; color:var(--muted)}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0}
+    .tag{padding:6px 10px; font-size:.8rem; font-weight:700; color:#0d1020; background:linear-gradient(90deg,#c9d4ff,#ffc6f0); border-radius:999px}
+    .btn{display:inline-block; padding:10px 14px; border-radius:10px; background:linear-gradient(90deg,#c0ccff,#ffb8ec); color:#0e1020; font-weight:700; text-decoration:none}
+    .btn:hover{filter:brightness(1.05)}
+    .back-home{margin:14px 0}
+
+    /* Panels / content */
+    main{padding-block:10px}
+    h2{margin:28px 0 12px; font-size:1.3rem; line-height:1.5}
+    h3{margin:24px 0 12px; font-size:1.1rem; line-height:1.6; font-weight:500}
+    p{margin:0 0 12px}
+    .panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:18px; margin:16px 0; box-shadow:var(--shadow)}
+
+    /* Chart list (unchanged) */
+    ul.chart-list{list-style:none; padding-left:0; margin:12px 0 4px}
+    ul.chart-list li{margin:12px 0}
+    figure{margin:10px 0 0; border:1px solid var(--line); border-radius:12px; overflow:hidden}
+    figure img{display:block; width:100%; height:auto}
+    figcaption{font-size:.9rem; color:var(--muted); padding:8px 10px; background:#10131a}
+
+    /* Scrollytelling */
+    .scrolly{display:grid; gap:20px; grid-template-columns: 1.15fr 1.85fr; align-items:start; margin:22px 0}
+    .scrolly .steps{display:flex; flex-direction:column; gap:12px}
+    .step{background:rgba(255,255,255,.02); border:1px solid var(--line); border-radius:12px; padding:14px}
+    .step.is-active{border-color:rgba(255,255,255,.28)}
+    .sticky{position:sticky; top:80px; border:1px solid var(--line); border-radius:12px; padding:16px; min-height:380px; background:#0e1118; box-shadow:var(--shadow)}
+    .sticky h4{margin:0 0 8px}
+    .media-wrap{border:1px dashed rgba(255,255,255,.15); border-radius:8px; min-height:280px; display:flex; align-items:center; justify-content:center; overflow:hidden}
+    .media-wrap img{width:100%; height:auto; display:block}
+    .media-state{display:none}
+    .media-state.is-visible{display:block}
+    .viz-note{color:var(--muted); font-size:.9rem; margin-top:8px}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .nav{display:none}
+      .scrolly{grid-template-columns:1fr}
+      .sticky{top:12px}
+    }
+
+    footer{border-top:1px solid var(--line); padding:20px; text-align:center; color:var(--muted)}
+
+    /* Media block & CTA */
+    .hero-media{margin:24px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var   (--shadow)}
+    .hero-media img,
+    .hero-media video{width:100%; height:auto; display:block}
+    .actions{margin:16px 0}
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:10px;
+      background:linear-gradient(90deg,#c0ccff,#ffb8ec);
+      color:#0e1020; font-weight:700; text-decoration:none;
+    }
+    .btn:hover{filter:brightness(1.05)}
+
+    /* Image container */
+    .image-container{
+        margin:24px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)
+    }
+    .image-container img{width:100%; display:block}
+
+  </style>
+</head>
+<body>
+
+  <!-- Synced header / nav -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Fern Itthisang</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page header -->
+  <section class="container">
+    <h1>Thai AMR Watch Dashboard</h1>
+    <div class="tags">
+      <span class="tag">UX/UI Design</span><span class="tag">UX Research</span><span class="tag">Responsive Design</span>
+      <span class="tag">Storytelling</span><span class="tag">Interactive Design</span><span class="tag">Data Analysis</span>
+      <span class="tag">Data Visualization</span><span class="tag">Data Dashboard</span>
+    </div>
+    <p class="meta"><strong>Client:</strong> International Health Policy Program (IHPP), Thailand</p>
+    <p class="meta"><strong>Team:</strong> Boonmee Lab — <strong>My role:</strong> UX/UI Designer, Data Visualizer, Interactive Designer</p>
+    <p class="meta"><strong>Year:</strong> 2022</p>
+    <div class="back-home"><a class="btn" href="index.html">← Back to Home</a></div>
+  </section>
+
+  <main class="container">
+    <h2>“The first platform turning IHPP’s research into interactive dashboards that highlight antimicrobial use, resistance, and medicine consumption trends in Thailand.”</h2>
+
+    <!-- NEW: Scrollytelling section -->
+    <!-- <section class="panel">
+      <h3>Story at a glance</h3>
+      <p>The dashboards guide policymakers and the public through three questions: <em>What do we use?</em> → <em>What resists?</em> → <em>What do people know?</em> Scroll to preview the key views.</p> -->
+
+      <!-- <div class="scrolly" id="scrolly"> -->
+        <!-- Steps -->
+        <!-- <div class="steps">
+          <div class="step" data-state="consumption">
+            <h4>1) Antimicrobial Consumption</h4>
+            <p>Sankey flows show dosage and annual antimicrobial use to highlight consumption trends over time.</p>
+          </div>
+          <div class="step" data-state="resistance">
+            <h4>2) Antimicrobial Resistance</h4>
+            <p>Line charts track resistance trends; dot/stacked bars compare distribution and composition across categories.</p>
+          </div>
+          <div class="step" data-state="awareness">
+            <h4>3) Awareness & Knowledge</h4>
+            <p>Bar and dot plots communicate survey results and gaps in public understanding.</p>
+          </div>
+          <div class="step" data-state="methods">
+            <h4>4) Methods & Process</h4>
+            <p>Workshops → data characterization → dashboard prototyping → accessibility & responsiveness checks.</p>
+          </div>
+        </div> -->
+
+        <!-- Sticky media panel -->
+        <!-- <aside class="sticky">
+          <h4 id="media-title">Antimicrobial Consumption</h4>
+          <div class="media-wrap"> -->
+            <!-- Swap these screenshots with your real ones -->
+            <!-- <img class="media-state is-visible" id="media-consumption" src="assets/ihpp/totalantimicrobialconsumption.png" alt="Sankey consumption dashboard">
+            <img class="media-state" id="media-resistance"  src="assets/ihpp/stacked2.png"  alt="Resistance trends dashboard">
+            <img class="media-state" id="media-awareness"   src="assets/ihpp/percentage.png"   alt="Awareness dashboard">
+            <img class="media-state" id="media-methods"     src="assets/ihpp/linechart.png"     alt="Process / methods">
+          </div>
+          <p class="viz-note" id="media-desc">Sankey flow highlighting annual antimicrobial usage.</p> -->
+          <!-- <div style="margin-top:10px">
+            <a class="btn" href="https://www.thaiamrwatch.net/" target="_blank" rel="noopener">Open Dashboard</a>
+          </div> -->
+                <!-- </aside> -->
+      <!-- </div>
+    </section> -->
+
+    <!-- Original narrative (kept) -->
+    <h3>
+      The International Health Policy Program (IHPP), Thailand is a public research organization that strengthens national healthcare systems by generating reliable evidence for policy-making. For this project, IHPP wanted to make their extensive research on antimicrobial resistance accessible to both policymakers and the public. Partnering with IHPP, my team at Boonmee Lab — where I contributed as UX/UI designer and data visualizer — transformed complex datasets into an academic-grade dashboard.
+    </h3>
+
+    <p>
+      The result, <em>thaiamrwatch.net</em>, presents information on antimicrobial consumption, resistance patterns, and public awareness. To best communicate the data, we designed a set of tailored visualizations:
+    </p>
+
+    <ul class="chart-list">
+      <li>
+        <strong>Sankey charts</strong> to illustrate dosage and annual antimicrobial use, highlighting consumption trends.
+        <figure><img src="assets/ihpp/totalantimicrobialconsumption.png" alt="Sankey chart example"><figcaption>Sankey flow illustrating annual antimicrobial usage.</figcaption></figure>
+      </li>
+      <li>
+        <strong>Dot plots</strong> to show distributions and comparisons.
+        <figure><img src="assets/ihpp/dotplot.png" alt="Dot plot example"><figcaption>Dot plot for distribution and comparison across categories.</figcaption></figure>
+      </li>
+      <li>
+        <strong>Bar charts</strong> to display proportions and categorical breakdowns.
+        <figure><img src="assets/ihpp/barchart.png" alt="Bar chart example"><figcaption>Bar chart highlighting proportions by category.</figcaption></figure>
+      </li>
+      <li>
+        <strong>Horizontal Stacked bar Charts</strong> to show composition within categories.
+        <figure><img src="assets/ihpp/stacked.png" alt="Horizontal stacked bar example"><figcaption>Composition comparison via stacked bars.</figcaption></figure>   
+      <li>
+        <strong>Diverging bar chart </strong> to show composition within categories.
+        <figure><img src="assets/ihpp/stacked2.png" alt="Diverging bar chart example"><figcaption>Composition comparison via diverging bar chart.</figcaption></figure>
+      </li>
+      <li>
+        <strong>Line charts</strong> to emphasize long-term resistance trends.
+        <figure><img src="assets/ihpp/linechart2.png" alt="Line chart example"><figcaption>Year-over-year resistance trends.</figcaption></figure>
+      </li>
+    </ul>
+
+    <p>The process began with workshops to understand IHPP’s research and stakeholder needs. We then conducted data characterization, categorizing and restructuring datasets to ensure clarity and usability.</p>
+
+    <p>Development presented challenges due to the complexity of the visualizations and the level of detail required. Our team carefully designed data structures to ensure compatibility between available data and the chosen chart types. In addition to dashboards, we created supporting pages for publications and news related to antimicrobial resistance. Still, the highlight of the site remains its dynamic, interactive dashboards, which demanded the most effort to perfect.</p>
+
+    <p>Through this project, I gained experience in translating complex datasets into interactive design systems, balancing accuracy with accessibility. The Thai AMR Watch Dashboard stands as a strong example of how data visualization and user-centered design can make critical health research understandable and actionable for broader audiences.</p>
+
+
+     <!-- Optional hero image / replace placeholder -->
+     <div class="hero-media">
+      <video src="assets/ihpp/ihpp.mov" controls muted loop playsinline autoplay>
+        <p>Your browser doesn't support HTML video. <a href="assets/ihpp/ihpp.mov">Download the video</a> instead.</p>
+      </video>
+    </div>
+  
+      <div class="actions">
+        <a class="btn" href="www.thaiamrwatch.net" target="_blank" rel="noopener">Project Website</a>
+      </div>
+    </main>
+
+  </main>
+
+  <footer>© <span id="y"></span> Pakjira Itthisang</footer>
+
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Scrollytelling behavior
+    (function(){
+      const steps = Array.from(document.querySelectorAll('.step'));
+      const title = document.getElementById('media-title');
+      const desc  = document.getElementById('media-desc');
+
+      const states = {
+        consumption: {
+          node: document.getElementById('media-consumption'),
+          title: 'Antimicrobial Consumption',
+          desc: 'Sankey flow highlighting annual antimicrobial usage.'
+        },
+        resistance: {
+          node: document.getElementById('media-resistance'),
+          title: 'Antimicrobial Resistance',
+          desc: 'Trends over time with line charts; distribution via dots/bars.'
+        },
+        awareness: {
+          node: document.getElementById('media-awareness'),
+          title: 'Awareness & Knowledge',
+          desc: 'Survey results and knowledge gaps shown with bars & dots.'
+        },
+        methods: {
+          node: document.getElementById('media-methods'),
+          title: 'Methods & Process',
+          desc: 'Workshops, data characterization, prototyping, accessibility.'
+        },
+      };
+
+      function show(key){
+        Object.values(states).forEach(s => s.node.classList.remove('is-visible'));
+        states[key].node.classList.add('is-visible');
+        title.textContent = states[key].title;
+        desc.textContent  = states[key].desc;
+      }
+      // init
+      show('consumption'); steps[0].classList.add('is-active');
+
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            steps.forEach(s => s.classList.toggle('is-active', s===entry.target));
+            const key = entry.target.getAttribute('data-state');
+            show(key);
+          }
+        });
+      }, {root:null, rootMargin:'0px 0px -55% 0px', threshold:0.5});
+
+      steps.forEach(s => io.observe(s));
+    })();
+  </script>
+</body>
+</html>

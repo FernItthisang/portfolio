@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dangerous Speech Monitoring in Thailand</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root{
+      --bg:#0f1115; --panel:#151821; --text:#f1f5f9; --muted:#9aa3af;
+      --line:#242a35; --brand:#8aa1ff; --accent:#ffb6e6;
+      --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.25);
+      --container:900px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.65;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .container{max-width:var(--container); margin-inline:auto; padding:32px 20px}
+
+    /* Site Header */
+    .site-header{
+      border-bottom:1px solid var(--line);
+      background:rgba(15,17,21,.6);
+      backdrop-filter:blur(8px);
+    }
+    .nav-wrap{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:20px 0;
+    }
+    .brand{
+      font-size:1.2rem; font-weight:700; color:var(--text);
+      text-decoration:none;
+    }
+    .nav{
+      display:flex; gap:24px;
+    }
+    .nav a{
+      color:var(--muted); text-decoration:none; font-weight:500;
+      transition:color .2s ease;
+    }
+    .nav a:hover{color:var(--brand)}
+
+    /* Project Header */
+    .project-header{
+      padding:40px 20px 32px;
+      border-bottom:1px solid var(--line);
+    }
+    h1{margin:0 0 24px; font-size:clamp(28px,5vw,40px); line-height:1.2}
+    .project-meta{display:flex; flex-direction:column; gap:20px}
+    .tags{display:flex; flex-wrap:wrap; gap:8px}
+    .tag{
+      padding:6px 12px; font-size:.85rem; font-weight:600; color:#0d1020;
+      background:linear-gradient(90deg,#c9d4ff,#ffc6f0);
+      border-radius:999px;
+    }
+    .meta-info{margin:0}
+    .meta-info p{margin:0 0 8px; color:var(--muted); font-size:.9rem}
+
+    /* Body */
+    main{padding-block:10px}
+    h2{margin:28px 0 12px; font-size:1.3rem; line-height:1.5}
+    h3{margin:24px 0 12px; font-size:1.1rem; line-height:1.6; font-weight:500}
+    p{margin:0 0 12px}
+
+    /* Chart list */
+    ul.chart-list{list-style:none; padding-left:0; margin:12px 0 4px}
+    ul.chart-list li{margin:12px 0}
+    figure{margin:10px 0 0; border:1px solid var(--line); border-radius:12px; overflow:hidden}
+    figure img{display:block; width:100%; height:auto}
+    figcaption{font-size:.9rem; color:var(--muted); padding:8px 10px; background:#10131a}
+
+    /* Media block & CTA */
+    .hero-media{margin:24px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+    .hero-media img,
+    .hero-media video{width:100%; height:auto; display:block}
+    .actions{margin:16px 0}
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:10px;
+      background:linear-gradient(90deg,#c0ccff,#ffb8ec);
+      color:#0e1020; font-weight:700; text-decoration:none;
+    }
+    .btn:hover{filter:brightness(1.05)}
+
+    /* Image container */
+    .image-container{
+        margin:24px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)
+    }
+    .image-container img{width:100%; display:block}
+    /* Footer */
+    footer{border-top:1px solid var(--line); padding:20px; text-align:center; color:var(--muted)}
+  </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrap">
+          <a class="brand" href="index.html">Fern Itthisang</a>
+          <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+  <header class="container">
+    <h1>Dangerous Speech Monitoring in Thailand</h1>
+    <div class="tags">
+      <span class="tag">UX/UI Design</span>
+      <span class="tag">Responsive Design</span>
+      <span class="tag">Data Visualization</span>
+      <span class="tag">Inclusive Design</span>
+      <span class="tag">Usability Testing</span>
+      <span class="tag">Social Listening</span>
+      <span class="tag">Storytelling</span>
+    </div>
+    <p class="meta"><strong>Collaboration:</strong> Boonmee Lab, ChangeFusion, Patani Forum, Trends Digital</p>
+    <p class="meta"><strong>Support:</strong> USAID (Networks for Peace) &amp; FHI 360</p>
+    <p class="meta"><strong>My role:</strong> UX/UI Designer (with the Boonmee Lab team)</p>
+  </header>
+
+  <main class="container">
+    <h2>Empowering Thai society to prevent online violence through engaging and insightful data visualization.</h2>
+
+    <section class="panel">
+      <h3>Overview</h3>
+      <p>
+        The website “Dangerous Speech Monitoring in Thailand” is a collaborative effort among Boonmee Lab, ChangeFusion, Patani Forum, and Trends Digital, with support from the United States Agency for International Development (USAID) through the Networks for Peace project and FHI 360.
+        The main objective of this collaboration is to study the use of “Dangerous Speech” in issues related to identity-based conflicts in Thai society, as observed on Thailand’s social media platforms.
+      </p>
+      <p>
+        All the information presented on the website is designed in the form of data visualization to make it easy for users to understand the patterns and characteristics of dangerous speech occurrences. The data visualization aims to be beneficial for stakeholders involved in developing guidelines or measures to prevent and address online violence from escalating into physical conflicts against identity-based groups in Thai society in the future.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h3>Process</h3>
+      <p>The process of thinking, designing, and developing data visualization is divided into five main steps as follows:</p>
+
+      <h4>Data Characterization</h4>
+      <p>
+        The process of designing data visualization began by studying reports on dangerous speech published in various countries, based on the research of three organizations: Hashtag Generation in Sri Lanka, Patani Forum, and Change Fusion. The study of the previous works allowed the designer to see various presentation methods while also providing an opportunity to gain a better understanding of the issue of dangerous speech.
+      </p>
+      <p>
+        After a detailed study of the reports, all the information was organized into a table to compare the advantages and potential gaps. Designers could utilize the identified advantages to develop upcoming projects and find ways to improve any gaps, aiming to present information in the most comprehensive manner possible.
+      </p>
+      <p>
+        Subsequently, the designer used the compiled dataset to create dashboards, incorporating basic headers and formats. A detailed plan aided organizations in the subsequent steps, including data collection through ZocialEye, identifying relevant keywords, and obtaining a clearer picture of the work’s scope and requirements.
+      </p>
+      <div class="image-container"> 
+        <img src="assets/nfp/NFP_Content.png" alt="Story">
+      </div>
+
+      <h4>Visualization Design</h4>
+      <p>
+        In addition to studying basic information and designing a storytelling method, the designer also sought information about dashboard presentation in diverse formats. Having various references assisted the designer in selecting the most suitable visualization format for the data.
+        For this project, the Strategic Decision-making Dashboard was chosen. This type of dashboard presented an overview of data through numbers, graphs, or other graphical formats that made it easy for viewers to understand the overall situation and use the data immediately.
+      </p>
+      <p>
+        Once the appropriate dashboard for the topic was selected, the designer utilized the data to create an actual dashboard, ensuring that the information presented in the visualization was easy to comprehend and aligned with the goals set for each topic. The resulting dashboard underwent a thorough review process to create a final version that closely matched the intended goals, as demonstrated in the following example:
+      </p>
+      <div class="image-container">
+        <img src="assets/nfp/NFP_Content2.png" alt="Dashboard">
+      <img src="assets/nfp/NFP_Content3.png" alt="Website">
+      </div>
+
+      <h4>3) Website development</h4>
+      <p>
+        The development team worked on creating the frontend and backend of the website. They implemented the designs, integrated data visualizations, and ensured the website’s functionality. The development team collaboratively worked on both the frontend and backend of the website. They seamlessly implemented the designs, integrated data visualizations, and ensured the website’s functionality.
+        As part of this process, the data from previous studies and reports was integrated into the website’s database.
+      </p>
+      <h4>4) Usability testing</h4>
+      <p>
+        We conducted a usability test with an inclusive group, which included individuals with color blindness, elderly individuals, people with disabilities, transgender individuals, and individuals from different cultural backgrounds. The aim of the test was to evaluate their ability to access information on the website seamlessly without encountering any barriers or sensitive content.
+      </p>
+      <p>
+        During the test, we observed how each participant interacted with the website and whether they faced any challenges in navigating and understanding the data visualizations. We also ensured that there were no sensitive or offensive content displayed on the website.
+      </p>
+      <p>
+        Based on the feedback and observations from the usability test, we made necessary adjustments and improvements to enhance the website’s accessibility and user-friendliness. These changes are part of our ongoing efforts to develop and improve the website, ensuring that it caters to the diverse needs of all users.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h3>Challenges</h3>
+
+      <h4>Project Conceptualization</h4>
+      <p>
+        Project Conceptualization was a critical process aimed at ensuring the alignment of the work with its intended goals. When creating the website on this topic, it was imperative for the involved team to possess a solid grasp of dangerous speech. To achieve this understanding, the organizations within this research network orchestrated meetings in diverse formats, including email discussions, online meetings, and continuous engagement in workshops. These efforts were undertaken to bolster their comprehension and knowledge.
+      </p>
+
+      <h4>Inclusive design</h4>
+      <p>
+        In designing the website, we embraced the Inclusive Design concept to ensure it catered to people of all backgrounds and abilities, considering accessibility, age, culture, economic situation, education, gender, location, language, and race. To achieve true inclusivity, we collaborated with gender specialists through workshops, refining aspects like colors, typography, and imagery to remain neutral.
+      </p>
+      <div class="image-container">
+        <img src="assets/nfp/NFP_Content4.png" alt="Usability testing">
+      </div>
+      <p>
+        Despite discussing violence, we aimed to avoid discomfort or gender bias. We adjusted images—replacing those showing harm with symbols commonly seen while typing chat messages—conveying the impact of online words leading to violence. We also tested with color-blind individuals to ensure content comprehension and prevent color-related confusion.
+      </p>
+
+      <h4>Presentation</h4>
+      <p>
+        We understood that while dangerous speech might be easily encountered, it isn’t something that everyone comprehends or finds engaging in general. This posed a challenge in making the presentation more captivating. Thus, we added a self-reflection quiz to the homepage of the website. This feature enabled readers to introspect whether they might have unintentionally perpetuated such rhetoric before delving into the content section. The aim was to enhance readers’ understanding and knowledge of dangerous speech.
+      </p>
+      <div class="image-container">
+        <img src="assets/nfp/NFP_Content5.png" alt="Presentation">
+      </div>
+      <p>
+        Another complexity was designing a set of questions that remained neutral and unbiased, avoiding undue direction that could label the test takers as either virtuous or malicious. Furthermore, designing and crafting animations that aligned with the questions, referencing real-life situations, presented an additional challenge.
+      </p>
+    </section>
+
+    <!-- Optional hero image / replace placeholder -->
+    <div class="hero-media">
+      <video src="assets/nfp/nfp.mov" controls muted loop playsinline autoplay>
+        <p>Your browser doesn't support HTML video. <a href="assets/nfp/nfp.mov">Download the video</a> instead.</p>
+      </video>
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="https://nfp-dangerous-speech.netlify.app" target="_blank" rel="noopener">Project Website</a>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Pakjira Itthisang
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+<!-- Empowering Thai society to prevent online violence through engaging and insightful data visualization. The website "Dangerous Speech Monitoring in Thailand" is a collaborative effort among Boonmee Lab, ChangeFusion, Patani Forum, and Trends Digital, with support from the United States Agency for International Development (USAID) through the Networks for Peace project and FHI 360. The main objective of this collaboration is to study the use of "Dangerous Speech" in issues related to identity-based conflicts in Thai society, as observed on Thailand's social media platforms. All the information presented on the website is designed in the form of data visualization to make it easy for users to understand the patterns and characteristics of dangerous speech occurrences. The data visualization aims to be beneficial for stakeholders involved in developing guidelines or measures to prevent and address online violence from escalating into physical conflicts against identity-based groups in Thai society in the future. Process The process of thinking, designing, and developing data visualization is divided into five main steps as follows: Data Characterization The process of designing data visualization began by studying reports on dangerous speech published in various countries, based on the research of three organizations: Hashtag Generation in Sri Lanka, Patani Forum, and Change Fusion. The study of the previous works allowed the designer to see various presentation methods while also providing an opportunity to gain a better understanding of the issue of dangerous speech. After a detailed study of the reports, all the information was organized into a table to compare the advantages and potential gaps. Designers could utilize the identified advantages to develop upcoming projects and find ways to improve any gaps, aiming to present information in the most comprehensive manner possible. Subsequently, the designer used the compiled dataset to create dashboards, incorporating basic headers and formats. A detailed plan aided organizations in the subsequent steps, including data collection through ZocialEye, identifying relevant keywords, and obtaining a clearer picture of the work's scope and requirements. Visualization Design In addition to studying basic information and designing a storytelling method, the designer also sought information about dashboard presentation in diverse formats. Having various references assisted the designer in selecting the most suitable visualization format for the data. For this project, the Strategic Decision-making Dashboard was chosen. This type of dashboard presented an overview of data through numbers, graphs, or other graphical formats that made it easy for viewers to understand the overall situation and use the data immediately. Once the appropriate dashboard for the topic was selected, the designer utilized the data to create an actual dashboard, ensuring that the information presented in the visualization was easy to comprehend and aligned with the goals set for each topic. The resulting dashboard underwent a thorough review process to create a final version that closely matched the intended goals, as demonstrated in the following example: Website development The development team worked on creating the frontend and backend of the website. They implemented the designs, integrated data visualizations, and ensured the website's functionality. The development team collaboratively worked on both the frontend and backend of the website. They seamlessly implemented the designs, integrated data visualizations, and ensured the website's functionality. As part of this process, the data from previous studies and reports was integrated into the website's database. Usability testing We conducted a usability test with an inclusive group, which included individuals with color blindness, elderly individuals, people with disabilities, transgender individuals, and individuals from different cultural backgrounds. The aim of the test was to evaluate their ability to access information on the website seamlessly without encountering any barriers or sensitive content. During the test, we observed how each participant interacted with the website and whether they faced any challenges in navigating and understanding the data visualizations. We also ensured that there were no sensitive or offensive content displayed on the website. Based on the feedback and observations from the usability test, we made necessary adjustments and improvements to enhance the website's accessibility and user-friendliness. These changes are part of our ongoing efforts to develop and improve the website, ensuring that it caters to the diverse needs of all users. Challenge Project Conceptualization Project Conceptualization was a critical process aimed at ensuring the alignment of the work with its intended goals. When creating the website on this topic, it was imperative for the involved team to possess a solid grasp of dangerous speech. To achieve this understanding, the organizations within this research network orchestrated meetings in diverse formats, including email discussions, online meetings, and continuous engagement in workshops. These efforts were undertaken to bolster their comprehension and knowledge. Inclusive design In designing the website, we embraced the Inclusive Design concept to ensure it catered to people of all backgrounds and abilities, considering accessibility, age, culture, economic situation, education, gender, location, language, and race. To achieve true inclusivity, we collaborated with gender specialists through workshops, refining aspects like colors, typography, and imagery to remain neutral. Despite discussing violence, we aimed to avoid discomfort or gender bias. We adjusted images—replacing those showing harm with symbols commonly seen while typing chat messages—conveying the impact of online words leading to violence. We also tested with color-blind individuals to ensure content comprehension and prevent color-related confusion. Presentation We understood that while dangerous speech might be easily encountered, it isn't something that everyone comprehends or finds engaging in general. This posed a challenge in making the presentation more captivating. Thus, we added a self-reflection quiz to the homepage of the website. This feature enabled readers to introspect whether they might have unintentionally perpetuated such rhetoric before delving into the content section. The aim was to enhance readers' understanding and knowledge of dangerous speech. Another complexity was designing a set of questions that remained neutral and unbiased, avoiding undue direction that could label the test takers as either virtuous or malicious. Furthermore, designing and crafting animations that aligned with the questions, referencing real-life situations, presented an additional challenge. -->

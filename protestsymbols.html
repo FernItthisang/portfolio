@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Protest Symbols — Visualizing Collective Action</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1115; --panel:#151821; --text:#f1f5f9; --muted:#9aa3af;
+      --line:#242a35; --brand:#8aa1ff; --accent:#ffb6e6;
+      --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.25);
+      --container:900px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.65;
+    }
+    .container{max-width:var(--container); margin:auto; padding:32px 20px}
+
+    /* Header / Nav */
+    .site-header{border-bottom:1px solid var(--line); background:rgba(15,17,21,.6); backdrop-filter:blur(8px); position:sticky; top:0; z-index:1000}
+    .nav-wrap{display:flex; justify-content:space-between; align-items:center; padding:16px 20px; max-width:var(--container); margin:0 auto}
+    .brand{font-weight:800; text-decoration:none; color:var(--text)}
+    .nav a{color:var(--text); text-decoration:none; margin-left:18px; font-weight:600}
+    .nav a:hover{color:var(--accent)}
+
+    h1{margin:.25rem 0 1rem; font-size:clamp(28px,5vw,40px); line-height:1.2}
+    .meta{margin:0 0 10px; color:var(--muted)}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0}
+    .tag{padding:6px 10px; font-size:.8rem; font-weight:700; color:#0d1020; background:linear-gradient(90deg,#c9d4ff,#ffc6f0); border-radius:999px}
+    .btn{display:inline-block; padding:10px 14px; border-radius:10px; background:linear-gradient(90deg,#c0ccff,#ffb8ec); color:#0e1020; font-weight:700; text-decoration:none}
+    .btn:hover{filter:brightness(1.05)}
+    .back-home{margin:14px 0}
+
+    main{padding-block:10px}
+    h2{margin:28px 0 12px; font-size:1.3rem; line-height:1.5}
+    h3{margin:24px 0 12px; font-size:1.1rem; line-height:1.6; font-weight:500}
+    p{margin:0 0 12px}
+    .panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:18px; margin:16px 0; box-shadow:var(--shadow)}
+
+    .hero-media{margin:20px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+    .hero-media img,
+    .hero-media video{width:100%; height:auto; display:block}
+    /* Image container */
+    .image-container{
+        margin:24px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)
+    }
+    .image-container img,
+    .image-container video{
+        width:100%; 
+        height:auto; 
+        display:block;
+        object-fit: cover;
+    }
+
+    footer{border-top:1px solid var(--line); padding:20px; text-align:center; color:var(--muted)}
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Fern Itthisang</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container">
+    <h1>Protest Symbols Documentation</h1>
+    <div class="tags">
+    <span class="tag">Case Study</span>
+      <span class="tag">Storytelling</span>
+      <span class="tag">Computational Design</span>
+      <span class="tag">Research</span>
+    </div>
+    <p class="meta"><strong>Role:</strong> Researcher, Designer</p>
+    <p class="meta"><strong>Year:</strong> 2024</p>
+    <div class="back-home"><a class="btn" href="index.html">← Back to Home</a></div>
+  </section>
+
+  <main class="container">
+    <h2>“Visualizing how protest symbols emerge, spread, and transform to communicate collective action and solidarity.”</h2>
+
+      <h3>Overview</h3>
+      <p>
+        This project examines how protest symbols evolve as social movements grow. It documents their origins, tracks how they spread, and analyzes how meanings shift across different contexts. By mapping these transformations, the project reveals how symbols visually communicate collective action and continue to inspire solidarity.
+      </p>
+
+      <h3><strong>Process</strong></h3>
+      <p><strong>Research</strong> — Collected a dataset of global protest symbols across movements in Thailand, Hong Kong, the US, and beyond. Documented origins, usage, and cultural adaptation.
+      <p><strong>Analysis</strong> — Compared shifts in symbolic meaning, examining how colors, gestures, and icons gain resonance in diverse political environments.</p>
+      <div class="image-container"><video src="assets/documenting/protest.mov" controls muted loop playsinline autoplay alt="Protest Symbols"></video></div>
+    </p>
+      <p><strong>Impact</strong> — The project demonstrates how symbols are not static but living entities, continually adapted to energize and unify collective action.</p>
+
+    <div class="hero-media">
+      <video src="assets/documenting/document.mov" controls muted loop playsinline autoplay>
+        <p>Your browser doesn't support HTML video. <a href="assets/documenting/document.mov">Download the video</a> instead.</p>
+      </video>
+    </div>
+
+    <div class="actions">   
+        <a class="btn" href="https://fernitthisang.github.io/coding-practices-fall2024/project/desktop/index.html" target="_blank" rel="noopener">Project Website</a>
+    </div>
+
+  </main>
+
+  <footer>
+    © <span id="y"></span> Pakjira Itthisang
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

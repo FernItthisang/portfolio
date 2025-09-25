@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Turtle Guardian — Sea Turtle Conservation Platform</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1115; --panel:#151821; --text:#f1f5f9; --muted:#9aa3af;
+      --line:#242a35; --brand:#8aa1ff; --accent:#ffb6e6;
+      --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.25);
+      --container:900px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.65;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .container{max-width:var(--container); margin-inline:auto; padding:32px 20px}
+
+    /* Synced header/nav */
+    .site-header{
+      border-bottom:1px solid var(--line);
+      background:rgba(15,17,21,.6);
+      backdrop-filter:blur(8px);
+      position:sticky; top:0; z-index:1000;
+    }
+    .nav-wrap{display:flex; justify-content:space-between; align-items:center; padding:16px 20px; max-width:var(--container); margin:0 auto}
+    .brand{font-weight:800; text-decoration:none; color:var(--text)}
+    .nav a{color:var(--text); text-decoration:none; margin-left:18px; font-weight:600}
+    .nav a:hover{color:var(--accent)}
+
+    /* Page header */
+    h1{margin:.25rem 0 1rem; font-size:clamp(28px,5vw,40px); line-height:1.2}
+    .meta{margin:0 0 10px; color:var(--muted)}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0}
+    .tag{
+      padding:6px 10px; font-size:.8rem; font-weight:700; color:#0d1020;
+      background:linear-gradient(90deg,#c9d4ff,#ffc6f0); border-radius:999px;
+    }
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:10px;
+      background:linear-gradient(90deg,#c0ccff,#ffb8ec);
+      color:#0e1020; font-weight:700; text-decoration:none;
+    }
+    .btn:hover{filter:brightness(1.05)}
+    .back-home{margin:14px 0}
+
+    /* Body */
+    main{padding-block:10px}
+    h2{margin:28px 0 12px; font-size:1.3rem; line-height:1.5}
+    h3{margin:24px 0 12px; font-size:1.1rem; line-height:1.6; font-weight:500}
+    p{margin:0 0 12px}
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      margin:16px 0;
+      box-shadow:var(--shadow);
+    }
+
+        /* Figures */
+    ul.chart-list{list-style:none; padding-left:0; margin:12px 0 4px}
+    ul.chart-list li{margin:12px 0}
+    /* figure{margin:10px 0 0; border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:var(--shadow)} */
+    figure img{display:block; width:100%; height:auto}
+    figcaption{font-size:.9rem; color:var(--muted); padding:8px 10px; background:#10131a}
+
+
+    /* Media block */
+    .hero-media{margin:20px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+    .hero-media img,
+    .hero-media video{width:100%; height:auto; display:block}
+    .actions{margin:16px 0}
+
+    /* Image container */
+    .image-container{
+        margin:24px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)
+    }
+    .image-container img{width:100%; display:block}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line); padding:20px; text-align:center; color:var(--muted)}
+  </style>
+</head>
+<body>
+
+  <!-- Synced header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Fern Itthisang</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Project header -->
+  <section class="container">
+    <h1>Turtle Guardian</h1>
+    <div class="back-home"><a class="btn" href="index.html">← Back to Home</a></div>
+    <div class="tags">
+      <span class="tag">Case Study</span>
+      <span class="tag">UX/UI Design</span>
+      <span class="tag">Interactive Storytelling</span>
+      <span class="tag">Gamification</span>
+      <span class="tag">Responsive Design</span>
+      <span class="tag">Data Visualization</span>
+    </div>
+    <p class="meta"><strong>Role:</strong> UX/UI Designer, Data Visualizer</p>
+    <p class="meta"><strong>Year:</strong> 2023</p>
+    <p class="meta"><strong>Stack:</strong> HTML/CSS/JS, D3.js</p>
+  </section>
+
+  <main class="container">
+    <h2>“A data storytelling website raising awareness about sea turtle conservation in Thailand through play, dashboards, and social insights.”</h2>
+
+      <h3>Overview</h3>
+      <p>
+        <strong>Turtle Guardian</strong> is an interactive platform designed to raise awareness about the threats sea turtles face, particularly from plastic waste. The site combines playful learning, real-world data, and social media analysis to encourage reflection, education, and collective action for marine conservation.
+      </p>
+
+      <h3>Core Features</h3>
+      <p>
+        The platform consists of three interconnected parts:
+      </p>
+      <ul>
+        <li><strong>Turtle Guardian Quiz</strong> — a gamified experience where players learn how to protect turtles through interactive questions.
+        <figure>
+            <div class="image-container">
+            <img src="assets/turtleguardian/turtlequiz.png" alt="Turtle Guardian Quiz">
+            <figcaption>
+                A gamified experience where players learn how to protect turtles through interactive questions. If they answer incorrectly, they can learn from their mistakes and try again, reinforcing their understanding.            </figcaption>
+          </figure>
+        </div>
+        </li>
+        <li><strong>Turtle Watch Dashboard</strong> — a data visualization tool showing sea turtle population and nesting patterns in Thailand (2020–2022).
+        <figure>
+            <div class="image-container">
+            <img src="assets/turtleguardian/turtledashboard.png" alt="Turtle Watch Dashboard">
+            <figcaption>
+              A data visualization tool showing sea turtle population and nesting patterns in Thailand (2020–2022).
+            </figcaption>
+          </figure>
+        </div>
+        </li>
+        <li><strong>Human Wave Analysis</strong> — an exploration of 4,000+ Thai social media posts to understand public engagement and online activism related to sea turtle conservation.
+        <figure>
+            <div class="image-container">
+            <img src="assets/turtleguardian/humanwave.png" alt="Human Wave Analysis">
+            <figcaption>
+              An exploration of 4,000+ Thai social media posts to understand public engagement and online activism related to sea turtle conservation.
+            </figcaption>
+          </figure>
+        </div>
+        </li>
+      </ul>
+
+      <h3>Process</h3>
+      <p><strong>Research</strong> — Studied global campaigns using animals as symbols of environmental activism and benchmarked interactive education tools.</p>
+      <p><strong>Concept</strong> — Make the game to help the players to learn about the sea turtles and how to protect them. Then give them a dashboard to see the sea turtle population and nesting patterns in Thailand (2020–2022) also how the people are engaging with the sea turtles in Thailand.</p>
+      <p><strong>Design</strong> — Developed a UX/UI system balancing playfulness with clarity. Used storytelling flows for accessibility.</p>
+      <p><strong>Development</strong> — Built the quiz and dashboard with interactive front-end libraries; integrated datasets and social media analysis outputs.</p>
+      <p><strong>Testing</strong> — Collected feedback from young audiences, educators, and conservation activists to refine both the educational depth and ease of use.</p>
+
+    <div class="hero-media">
+        <video src="assets/turtleguardian/turtleguardian.mov" controls muted loop playsinline autoplay>
+            <p>Your browser doesn't support HTML video. <a href="assets/turtleguardian/turtleguardian.mov">Download the video</a> instead.</p>
+      </video>
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="https://ffern257.github.io/thesis/#/" target="_blank" rel="noopener">Project Website</a>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Pakjira Itthisang
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

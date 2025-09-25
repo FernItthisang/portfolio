@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ArtSip — Art × Mixology Experience</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1115; --panel:#151821; --text:#f1f5f9; --muted:#9aa3af;
+      --line:#242a35; --brand:#8aa1ff; --accent:#ffb6e6;
+      --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.25);
+      --container:900px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.65;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .container{max-width:var(--container); margin-inline:auto; padding:32px 20px}
+
+    /* Synced header/nav */
+    .site-header{
+      border-bottom:1px solid var(--line);
+      background:rgba(15,17,21,.6);
+      backdrop-filter:blur(8px);
+      position:sticky; top:0; z-index:1000;
+    }
+    .nav-wrap{display:flex; justify-content:space-between; align-items:center; padding:16px 20px; max-width:var(--container); margin:0 auto}
+    .brand{font-weight:800; text-decoration:none; color:var(--text)}
+    .nav a{color:var(--text); text-decoration:none; margin-left:18px; font-weight:600}
+    .nav a:hover{color:var(--accent)}
+
+    /* Page header */
+    h1{margin:.25rem 0 1rem; font-size:clamp(28px,5vw,40px); line-height:1.2}
+    .meta{margin:0 0 10px; color:var(--muted)}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0}
+    .tag{
+      padding:6px 10px; font-size:.8rem; font-weight:700; color:#0d1020;
+      background:linear-gradient(90deg,#c9d4ff,#ffc6f0); border-radius:999px;
+    }
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:10px;
+      background:linear-gradient(90deg,#c0ccff,#ffb8ec);
+      color:#0e1020; font-weight:700; text-decoration:none;
+    }
+    .btn:hover{filter:brightness(1.05)}
+    .back-home{margin:14px 0}
+
+    /* Body */
+    main{padding-block:10px}
+    h2{margin:28px 0 12px; font-size:1.3rem; line-height:1.5}
+    h3{margin:24px 0 12px; font-size:1.1rem; line-height:1.6; font-weight:500}
+    p{margin:0 0 12px}
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      margin:16px 0;
+      box-shadow:var(--shadow);
+    }
+
+    /* Figures */
+    ul.feature-list{list-style:none; padding-left:0; margin:12px 0 4px}
+    ul.feature-list li{margin:12px 0}
+    figure{margin:10px 0 0; border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+    figure img{display:block; width:100%; height:auto}
+    figcaption{font-size:.9rem; color:var(--muted); padding:8px 10px; background:#10131a}
+
+    /* Media block & CTA */
+    .hero-media{margin:20px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+    .hero-media img,
+    .hero-media video{width:100%; height:auto; display:block}
+    .actions{margin:16px 0}
+
+    /* Image container */
+    .image-container{
+        margin:24px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)
+    }
+    .image-container img{width:100%; display:block}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line); padding:20px; text-align:center; color:var(--muted)}
+  </style>
+</head>
+<body>
+
+  <!-- Synced header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Fern Itthisang</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Project header -->
+  <section class="container">
+    <h1>ArtSip</h1>
+    <div class="tags">
+      <span class="tag">Case Study</span>
+      <span class="tag">UX/UI Design</span>
+      <span class="tag">Interactive Storytelling</span>
+      <span class="tag">Gamification</span>
+      <span class="tag">Responsive Design</span>
+      <span class="tag">API Integration</span>
+    </div>
+    <p class="meta"><strong>Client:</strong> National Gallery of Art</p>
+    <p class="meta"><strong>Role:</strong> UX/UI Designer, Data Storyteller, Data Analyst</p>
+    <p class="meta"><strong>Year:</strong> 2023</p>
+    <p class="meta"><strong>Stack:</strong> HTML/CSS/JS, D3.js, custom API</p>
+    <div class="back-home"><a class="btn" href="index.html">← Back to Home</a></div>
+  </section>
+
+  <main class="container">
+    <h2>“Blending art and mixology into an immersive digital experience where visitors craft cocktails inspired by masterpieces.”</h2>
+
+      <h3>Overview</h3>
+      <p>
+        <strong>ArtSip</strong> transforms art museum experiences by merging art appreciation with mixology. It offers a 
+        virtual tour of the <em>National Gallery of Art</em>, where visitors can explore artworks and create custom cocktails 
+        inspired by the color palettes and emotional tones of the paintings. Each artwork’s palette translates into 
+        ingredients for a recipe, encouraging playful interaction while deepening engagement with the collection.
+      </p>
+
+      <h3>Features</h3>
+      <ul class="feature-list">
+        <li>
+         <strong>Overall diversity of artworks</strong> — Explore the diversity of artworks in the National Gallery of Art.
+          <figure>
+            <img src="assets/artsip/2.png" alt="Art distribution map and proportions">
+            <figcaption>
+                A waffle chart representing 2,547 artworks in the National Gallery of Art. Sculptures (45.82%) and paintings (42.60%) dominate the collection, while photographs, decorative arts, drawings, and new media represent smaller but important proportions.
+            </figcaption>
+          </figure>
+         
+         <strong>Virtual Gallery Tour</strong> — Navigate through the National Gallery’s masterpieces in an interactive environment.
+          <figure>
+            <img src="assets/artsip/1.png" alt="chart example">
+            <figcaption>
+              Navigate through the National Gallery’s masterpieces in an interactive environment.
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+            <strong>Palette-to-Drink Engine</strong> — Each artwork’s palette is analyzed; dominant hues map to cocktail ingredients.  
+            <figure>
+              <img src="assets/artsip/3.png" alt="Art distribution map and proportions">
+              <figcaption>
+                A floor plan of the National Gallery of Art overlaid with artwork locations, paired with a proportional chart showing the diversity of art types. This visualization helps visitors explore density, distribution, and categories of artworks before generating cocktail inspirations.
+              </figcaption>
+            </figure>
+        </li>
+        <li>
+          <strong>Interactive Mixology</strong> — Users “craft” drinks on-screen, blending flavors while learning about the art.
+          <figure>
+            <img src="assets/artsip/4.png" alt="chart example">
+            <figcaption>
+              Users “craft” drinks on-screen, blending flavors while learning about the art.
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <strong>Educational Layer</strong> — Each drink recipe is tied to the artwork’s history, making art approachable and fun.
+          <figure>
+            <img src="assets/artsip/5.png" alt="chart example">
+            <figcaption>
+              Each drink recipe is tied to the artwork’s history, making art approachable and fun.
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+
+      <h3>Process</h3>
+      <p><strong>Research & Concept</strong> — Studied audience engagement methods in museums; benchmarked interactive art-education platforms.</p>
+      <p><strong>Design</strong> — Built a design system merging modern mixology aesthetics with classical art themes. Focus on inclusive, responsive layouts.</p>
+      <p><strong>Development</strong> — Engineered a color-extraction algorithm to match hues with drink elements. Prototyped the cocktail builder using D3.js + vanilla JS.</p>
+      <p><strong>Testing</strong> — Iterated with users, refining balance between playful storytelling and educational depth. Adjusted UI for accessibility and clarity.</p>
+
+    <div class="hero-media">
+      <video src="assets/artsip/artsips.mov" controls muted loop playsinline autoplay>
+        <p>Your browser doesn't support HTML video. <a href="assets/artsip/artsip.mov">Download the video</a> instead.</p>
+      </video>
+    </div>
+
+    <div class="actions">
+      <!-- Replace with your deployed project link -->
+      <a class="btn" href="https://ffern257.github.io/MSfallFinal/" target="_blank" rel="noopener">Project Website</a>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Pakjira Itthisang
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
