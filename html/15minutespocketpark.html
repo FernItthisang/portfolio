@@ -8,97 +8,8 @@
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 
-  <style>
-    :root{
-      --bg:#0f1115; --panel:#151821; --text:#f1f5f9; --muted:#9aa3af;
-      --line:#242a35; --brand:#8aa1ff; --accent:#ffb6e6;
-      --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.25);
-      --container:900px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg); color:var(--text); line-height:1.65;
-      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    }
-    .container{max-width:var(--container); margin-inline:auto; padding:32px 20px}
-
-    /* Site Header */
-    .site-header{
-      border-bottom:1px solid var(--line);
-      background:rgba(15,17,21,.6);
-      backdrop-filter:blur(8px);
-    }
-    .nav-wrap{
-      display:flex; justify-content:space-between; align-items:center;
-      padding:20px 0;
-    }
-    .brand{
-      font-size:1.2rem; font-weight:700; color:var(--text);
-      text-decoration:none;
-    }
-    .nav{
-      display:flex; gap:24px;
-    }
-    .nav a{
-      color:var(--muted); text-decoration:none; font-weight:500;
-      transition:color .2s ease;
-    }
-    .nav a:hover{color:var(--brand)}
-
-    /* Project Header */
-    .project-header{
-      padding:40px 20px 32px;
-      border-bottom:1px solid var(--line);
-    }
-    h1{margin:0 0 24px; font-size:clamp(28px,5vw,40px); line-height:1.2}
-    .project-meta{display:flex; flex-direction:column; gap:20px}
-    .tags{display:flex; flex-wrap:wrap; gap:8px}
-    .tag{
-      padding:6px 12px; font-size:.85rem; font-weight:600; color:#0d1020;
-      background:linear-gradient(90deg,#c9d4ff,#ffc6f0);
-      border-radius:999px;
-    }
-    .meta-info{margin:0}
-    .meta-info p{margin:0 0 8px; color:var(--muted); font-size:.9rem}
-
-    /* Body */
-    main{padding-block:10px}
-    h2{margin:28px 0 12px; font-size:1.3rem; line-height:1.5}
-    h3{margin:24px 0 12px; font-size:1.1rem; line-height:1.6; font-weight:500}
-    p{margin:0 0 12px}
-
-    /* Chart list */
-    ul.chart-list{list-style:none; padding-left:0; margin:12px 0 4px}
-    ul.chart-list li{margin:12px 0}
-    figure{margin:10px 0 0; border:1px solid var(--line); border-radius:12px; overflow:hidden}
-    figure img{display:block; width:100%; height:auto}
-    figcaption{font-size:.9rem; color:var(--muted); padding:8px 10px; background:#10131a}
-
-    /* Media block & CTA */
-    .hero-media{margin:24px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
-    .hero-media img,
-    .hero-media video{width:100%; height:auto; display:block}
-    .actions{margin:16px 0}
-    .btn{
-      display:inline-block; padding:10px 14px; border-radius:10px;
-      background:linear-gradient(90deg,#c0ccff,#ffb8ec);
-      color:#0e1020; font-weight:700; text-decoration:none;
-    }
-    .btn:hover{filter:brightness(1.05)}
-
-    /* Image container */
-    .image-container{
-        margin:24px 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)
-    }
-    .image-container img{width:100%; display:block}
-
-    /* Footer */
-    footer{border-top:1px solid var(--line); padding:20px; text-align:center; color:var(--muted)}
-  </style>
 </head>
 <body>
     <header class="site-header">
@@ -167,9 +78,7 @@
     © <span id="y"></span> Pakjira Itthisang
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
 <!-- Text of this project -->
